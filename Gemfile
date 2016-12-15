@@ -26,3 +26,6 @@ group :development do
   gem 'meta_request'
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# 12-14-16:
+gem 'haml-rails', '~> 0.9.0'
