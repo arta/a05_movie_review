@@ -28,4 +28,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 12-14-16:
+gem 'devise', '~> 4.2'
 gem 'haml-rails', '~> 0.9.0'
