@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /movies
   def index
@@ -12,7 +13,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/new
   def new
-    @movie = Movie.new
+    @movie = current_user.movies.new
   end
 
   # GET /movies/:id/edit
@@ -21,7 +22,7 @@ class MoviesController < ApplicationController
 
   # POST /movies
   def create
-    @movie = Movie.new( movie_params )
+    @movie = current_user.movies.new( movie_params )
 
     if @movie.save
       redirect_to @movie, notice: 'Movie was successfully created.'
