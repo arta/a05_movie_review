@@ -2,6 +2,7 @@
 %table
   %thead
     %tr
+      %th &nbsp;
       %th Title
       %th Description
       %th Length
@@ -11,6 +12,9 @@
   %tbody
     -@movies.each do |movie|
       %tr
+        %td
+          =link_to movie do
+            =image_tag movie.image.url( :thumb )
         %td= movie.title
         %td= movie.description.truncate_words( 20, omission:' ...' )
         %td= movie.length
