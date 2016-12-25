@@ -2,13 +2,6 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /reviews
-  # =link_to .. reviews_path
-  def index
-    @reviews = Review.all
-  end
-  # Automatically render 'index' (views/reviews/index.html.haml)
-
   # GET /reviews/new
   # =link_to .. new_review_path
   def new
@@ -27,12 +20,6 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
-
-  # GET /reviews/:id
-  # =link_to .. @review | review_path( @review )
-  def show
-  end
-  # Automatically render 'show'
 
   # GET /reviews/:id/edit
   # =link_to .. edit_review_path( @review )
