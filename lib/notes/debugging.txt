@@ -1,0 +1,23 @@
+###############################################################################
+# 12-25-16: ###################################################################
+• Issue:
+: jquery.raty.js rating stars do not load unless page reloaded.
+: It's a persistent issue with turbolinks and jQuery.
+
+• Solution:
+: http://stackoverflow.com/questions/18770517/rails-4-how-to-use-document-ready-with-turbo-links
+: essentially, do:
+
+  $( document ).on( 'turbolinks:load', function() {
+    // all the JS/jQ marvel here;
+  })
+
+  instead of traditional:
+
+  $( document ).ready( function() {
+    // all the JS/jQ marvel here;
+  })
+
+: See `reviews.coffee`
+: Also see notes in the previous app: a04_pin_board
+###############################################################################
