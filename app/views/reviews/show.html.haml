@@ -1,11 +1,12 @@
-%p#notice= notice
-
 %p
   %b Rating:
-  = @review.rating
+  =@review.rating
 %p
   %b Comment:
-  = @review.comment
+  =@review.comment
+%p
+  %b User:
+  =@review.user.email
 
 = link_to 'Edit', edit_review_path(@review)
 \|

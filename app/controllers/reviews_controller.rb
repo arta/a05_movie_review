@@ -1,24 +1,25 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /reviews
   # =link_to .. reviews_path
   def index
     @reviews = Review.all
   end
-  # Automatically render 'index' (views/review/index.html.haml)
+  # Automatically render 'index' (views/reviews/index.html.haml)
 
   # GET /reviews/new
   # =link_to .. new_review_path
   def new
-    @review = Review.new
+    @review = current_user.reviews.new
   end
   # Automatically render 'new' (which renders _form)
 
   # POST /reviews
   # =form_for @review ..       .new_record? == true => url: '/reviews', method: :post
   def create
-    @review = Review.new( review_params )
+    @review = current_user.reviews.new( review_params )
 
     if @review.save
       redirect_to @review, notice:'Review was successfully created.'
