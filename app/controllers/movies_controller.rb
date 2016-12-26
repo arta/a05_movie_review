@@ -5,7 +5,11 @@ class MoviesController < ApplicationController
   # GET /movies
   # =link_to .. movies_path
   def index
-    @movies = Movie.all
+    @movies = if params[:search].present?
+      Movie.search params[:search]
+    else
+      Movie.all
+    end
   end
   # Automatically render 'index' (views/movies/index.html.haml)
 
@@ -56,16 +60,6 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
     redirect_to movies_url, notice: 'Movie was successfully destroyed.'
-  end
-
-  # GET /movies/search
-  def search
-    @movies = if params[:search].present?
-      Movie.search params[:search]
-    else
-      Movie.all
-    end
-    render :index
   end
 
   private
