@@ -1,0 +1,18 @@
+###############################################################################
+# 12-25-16: ###################################################################
+• gem 'searchkick'
+: relatively involved, using homebrew to install
+: java (following brew prompt)
+  $ brew cask install java
+: elasticsearch (which required the java installation)
+  $ brew install elasticsearch
+: then running elasticsearch server (comparable to running a db server?)
+  $ elastic
+  : check at `localhost:9200` for a cryptic JSON output
+    terminating with a sardonic:
+      "tagline" : "You Know, for Search"
+: then (with elasticsearch running) reindexing in $ rails console:
+  > Movie.reindex
+  or, with a rake task:
+  $ rails searchkick:reindex CLASS=Movie
+###############################################################################

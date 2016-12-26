@@ -33,10 +33,11 @@ group :development do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# 12-25-16:
+gem 'searchkick', '~> 1.5'
 # 12-24-16:
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'paperclip', '~> 5.1'
-
 # 12-14-16:
 gem 'devise', '~> 4.2'
 gem 'haml-rails', '~> 0.9.0'

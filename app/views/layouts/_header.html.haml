@@ -17,9 +17,7 @@
         -else
           %li= link_to "Sign Up", new_user_registration_path, class:'active'
           %li= link_to "Sign In", new_user_session_path, class:'active'
-      %form.navbar-form.navbar-right{ role:'search' }
-        .form-group
+      =form_tag search_movies_path, method: :get, class:'navbar-form navbar-right', role:'search' do
+        %p
           =text_field_tag :search, params[:search], class:'form-control'
-          =submit_tag "Search", name:nil, class:'btn btn-default'
-    / /.navbar-collapse
-  / /.container-fluid
+          =submit_tag 'Search', name:nil, class:'btn btn-default'
