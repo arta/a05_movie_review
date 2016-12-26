@@ -3,6 +3,10 @@
     .row
       .col-md-4
         =image_tag @movie.image.url( :medium )
+        .average-review
+          %span.star-rating{ 'data-score': @average_review }
+          out of
+          =pluralize( @movie.reviews.size, 'review' )
         .table-responsive
           %table.table
             %tbody
@@ -29,6 +33,7 @@
           %h3 No reviews just yet, would you like to add the first!
           =link_to 'Write a review', new_movie_review_path( @movie ), class:'btn btn-danger'
         -else
+          %h3 Member reviews:
           =render @movie.reviews
 
 =link_to 'Edit', edit_movie_path(@movie)

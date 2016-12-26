@@ -31,6 +31,7 @@ class MoviesController < ApplicationController
   # GET /movies/:id
   # =link_to .. @movie | movie_path( @movie )
   def show
+    @average_review = @movie.reviews.average( :rating )
   end
   # Automatically render 'show'
 
