@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
-  before_action :set_movie
+  before_action :set_movie, only: [:new, :create]
 
   # GET /movies/:movie_id/reviews/new
   # =link_to .. new_movie_review_path( @movie )
@@ -23,25 +23,26 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # GET /movies/:movie_id/reviews/:id/edit
-  # =link_to .. edit_movie_review_path( @movie, @review )
+  # GET /reviews/:id/edit
+  # =link_to .. edit_review_path( @review )
   def edit
   end
   # Automaticall render 'edit' (which renders _form)
 
-  # PATCH|PUT /movies/:movie_id/reviews/:id
-  # =form_for [@movie, @review] ..       .new_record? == false => url: '/movies/:movie_id/reviews/:id', method: :patch
+  # PATCH|PUT /reviews/:id
+  # =form_for [@movie, @review] ..       .new_record? == false => url: '/reviews/:id', method: :patch
   def update
     if @review.update( review_params )
-       redirect_to @movie, notice:'Review was successfully updated.'
+       redirect_to @review.movie, notice:'Review was successfully updated.'
     else
       render :edit
     end
   end
 
-  # DELETE /movies/:movie_id/reviews/:id
-  # =link_to .. movie_review_path( @movie, @review ), method: :delete
+  # DELETE /reviews/:id
+  # =link_to .. @review | review_path( @review ), method: :delete
   def destroy
+    @movie = @review.movie
     @review.destroy
     redirect_to @movie, notice:'Review was successfully destroyed.'
   end

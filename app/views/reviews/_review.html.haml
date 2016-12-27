@@ -1,3 +1,7 @@
 .reviews
   .star-rating{ 'data-score': review.rating }
   %p= review.comment
+  %p
+    =link_to 'Edit', edit_review_path( review )
+    |
+    =link_to 'Delete', review, method: :delete, data:{ confirm:'Are you sure?' }
