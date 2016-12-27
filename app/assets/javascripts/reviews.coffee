@@ -19,8 +19,11 @@ $( document ).on 'turbolinks:load', ->
       $( this ).attr( 'data-score' )
   return
 
-# Set Star rating (on reviews _form):
+# Read and convert numeric rating to Stars, set Star rating (on reviews _form):
 $( document ).on 'turbolinks:load', ->
   $( '#star-rating' ).raty
     path: '/assets',
     scoreName: 'review[rating]'
+    score: ->
+      $( this ).attr( 'data-score' )
+  return

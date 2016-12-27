@@ -7,10 +7,7 @@
           %li= msg
 
   .field
-    #star-rating
-    -# =f.label :rating
-    -# %br
-    -# =f.number_field :rating
+    #star-rating{ 'data-score': @review.rating }
   .field
     =f.label :comment
     %br
