@@ -13,8 +13,8 @@
 # Read and convert numeric rating to Stars (on _review partial):
 $( document ).on 'turbolinks:load', ->
   $( '.star-rating' ).raty
-    path: '/assets',
-    readOnly: true,
+    path: '/assets'
+    readOnly: true
     score: ->
       $( this ).attr( 'data-score' )
   return
@@ -22,7 +22,7 @@ $( document ).on 'turbolinks:load', ->
 # Read and convert numeric rating to Stars, set Star rating (on reviews _form):
 $( document ).on 'turbolinks:load', ->
   $( '#star-rating' ).raty
-    path: '/assets',
+    path: '/assets'
     scoreName: 'review[rating]'
     score: ->
       $( this ).attr( 'data-score' )

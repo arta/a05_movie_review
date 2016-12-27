@@ -1,4 +1,22 @@
 ###############################################################################
+# 12-26-16: ###################################################################
+• Issue:
+: jquery.raty.js stars multiply on browser back tracing (back button)
+: with each back tracing a set of 5 new stars is added
+  : these new stars do not respond to mouseover though ...
+
+• Solution:
+: a hack, ugly, but it works: raty configuration code is in both:
+  : review.coffee &
+  : -content_for :javascript (on reviews _form and _review partials)
+
+• Thoughts:
+: could it be a matter of local/production / pipeline / asset precompiling ?
+###############################################################################
+
+
+
+###############################################################################
 # 12-25-16: ###################################################################
 • Issue:
 : jquery.raty.js rating stars do not load unless page reloaded.
