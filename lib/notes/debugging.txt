@@ -1,4 +1,17 @@
 ###############################################################################
+# 1-4-17: ###################################################################
+• Issue:
+: revisiting jquery.raty.js stars multiplication on browser back tracing
+: https://github.com/wbotelhos/raty/issues/198#issuecomment-270380245
+
+• Solution (per jakeland's suggestion):
+: add `$( '<.|#>star-rating' ).raty( 'reload' )` to review.coffee &
+: delete `-content_for :javascript` (on reviews _form and _review partials)
+###############################################################################
+
+
+
+###############################################################################
 # 12-26-16: ###################################################################
 • Issue:
 : jquery.raty.js stars multiply on browser back tracing (back button)

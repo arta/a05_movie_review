@@ -17,7 +17,8 @@ $( document ).on 'turbolinks:load', ->
     readOnly: true
     score: ->
       $( this ).attr( 'data-score' )
-  return
+  # reload stars/stop duplication on browser back tracing
+  $( '.star-rating' ).raty( 'reload' )
 
 # Read and convert numeric rating to Stars, set Star rating (on reviews _form):
 $( document ).on 'turbolinks:load', ->
@@ -26,4 +27,5 @@ $( document ).on 'turbolinks:load', ->
     scoreName: 'review[rating]'
     score: ->
       $( this ).attr( 'data-score' )
-  return
+  # reload stars/stop duplication on browser back tracing
+  $( '#star-rating' ).raty( 'reload' )
